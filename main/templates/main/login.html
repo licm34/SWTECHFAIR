@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title></title>
+</head>
+<body>
+
+<p>중앙대학교 블루미르홀 세탁실 예약시스템 </p>
+
+<form action="{% url 'main:login' %}" method="POST">
+    {% csrf_token %}
+    <input type="text" class="form-control" name="UserName" placeholder="학번"> <br>
+    <input type="password" class="form-control" name="PassWord" placeholder="비밀번호"> <br>
+    <input type="submit" class="form-control btn btn-secondary" value="로그인"> <br>
+
+    <a href="{% url 'account:signup' %}">회원가입</a>
+</form> 
+         
+</body>
+</html>

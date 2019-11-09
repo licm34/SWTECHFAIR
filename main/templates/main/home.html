@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>기빨려 예약시스템 welcome</title>
+</head>
+
+<body>
+    <link href="https://fonts.googleapis.com/css?family=Do+Hyeon&display=swap&subset=korean" rel="stylesheet">
+
+    <p id="welcome">{{user.UserName}}님 환영합니다! 생활관 세탁기 예약 시스템입니다. &nbsp;&nbsp;&nbsp; 
+    <a id="bar" href="{% url 'account:myinfo' %}">내 정보</a> &nbsp;&nbsp;&nbsp;
+    <a id="bar" href="{% url 'main:logout' %}">로그아웃</a> <br><br>
+
+    <a href="">308관 남자</a> <br>
+    <a href="">308관 여자</a> <br>
+    <a href="">309관 남자</a> <br>
+    <a href="">309관 여자</a> <br>
+</body>
+</html>
