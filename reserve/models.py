@@ -3,15 +3,15 @@ from main.models import Washer,Dryer
 from account.models import User
 
 class W_Book(models.Model):
-    MachineId = models.ForeignKey(Washer, on_delete=models.CASCADE)
+    MachineId = models.ForeignKey(Washer, on_delete=models.DO_NOTHING)
     #UserId = models.ForeignKey(User, on_delete=models.CASCADE)
-    UserId = models.IntegerField()
+    UserId = models.ForeignKey(User, on_delete=models.DO_NOTHING)
     ValidTime = models.DateTimeField()
     EndTime = models.DateTimeField(null=True,blank=True)
 
 class D_Book(models.Model):
-    MachineId = models.ForeignKey(Dryer, on_delete=models.CASCADE)
+    MachineId = models.ForeignKey(Dryer, on_delete=models.DO_NOTHING)
     #UserId = models.ForeignKey(User, on_delete=models.CASCADE)
-    UserId = models.IntegerField()
+    UserId = models.ForeignKey(User, on_delete=models.DO_NOTHING)
     ValidTime = models.DateTimeField()
     EndTime = models.DateTimeField(null=True,blank=True)
