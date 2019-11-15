@@ -1,0 +1,55 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>기빨려 예약시스템 {% block title %}{% endblock %}</title>
+    <style>
+        body {
+            font-family: 'Do Hyeon', sans-serif;
+        }
+        .topbar {
+            height: 120px;
+            background: #014167;
+        }
+        .logo {
+            float: left;
+            width: 30%;
+            padding-top: 10px;
+        }
+        .bar {
+            color: #fff;
+            font-size: 24px;
+            height: 60px;
+            float: right;
+            padding-right: 20px;
+            padding-top: 50px;
+            }
+        #welcome {
+            margin-top: 5%;
+            font-size: 48px;
+            text-align: center;
+            color: #ccecff;
+            }
+    </style>
+</head>
+
+<body>
+    <link href="https://fonts.googleapis.com/css?family=Do+Hyeon&display=swap&subset=korean" rel="stylesheet">
+
+    <div class="topbar">
+        <a class="logo" href="{%url 'main:home'%}" text-align="left">
+            <img src="{% static 'logo2.jpg' %}" height="100">
+        </a>
+        <div class="bar">
+            <a>{{user.UserName}}님 환영합니다!</a>
+            <a href="{% url 'account:myinfo' %}" style="color: #bbb">내 정보</a>
+            <a href="{% url 'main:logout' %}" style="color: #bbb">로그아웃</a>  <br><br>
+        </div>
+    </div>
+
+    {% block content %}{% endblock %}
+</body>
+</html>

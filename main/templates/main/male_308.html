@@ -1,0 +1,190 @@
+{% extends 'base.html' %}
+
+{% block title %}male_308{% endblock %}
+
+{% block content %}
+
+<style>
+    #welcome {
+        margin-top: 5%;
+        font-size: 48px;
+        text-align: center;
+        color: #aaa;
+        font-family: 'Do Hyeon', sans-serif;
+        }
+    }
+    div {
+        font-family: 'Do Hyeon', sans-serif;
+        }
+
+    .wm {
+        background: lightgray;
+        border: 6px solid white;
+        text-align: center;
+        font-size: 60px;
+        width: 80px;
+    }
+
+
+    #wm-container, #dr-container {
+        width: 100%;
+        height: 500px;
+      }
+    #wm-header, #dr-header {
+        font-size: 24px;
+        height: 70px;
+        padding-left: 9%;
+      }
+    #wm-content, #dr-content {
+        width: 50%;
+        height: 30%;
+        margin-bottom: 20px;
+        float: left;
+        height: 450px;
+      }
+    #wm-nav, #dr-nav {
+        width: 50%;
+        margin-bottom: 24px;
+        float: left;
+        font-size: 30px;
+        height: 450px;
+      }
+
+    .info th {
+          padding-left: 10px;
+          padding-right: 10px;
+      }
+    .book{
+          text-align: center;
+      }
+    tr a {
+        color: #014167;
+        background-color: #ccecff;
+      }
+    th {
+        padding-bottom: 20px;
+    }
+
+@media screen and (max-width:800px){
+                #wm-content {
+                    height: 90%;
+                    width: 50%;
+                }
+                #wm-nav {
+                    height: 90%;
+                    width: 50%;
+                }
+                #wm-container {
+                    height: 70%;
+                    width: 100%;
+                }
+            }
+@media screen and (max-width:800px){
+                #dr-content {
+                    height: 90%;
+                    width: 50%;
+                }
+                #dr-nav {
+                    height: 90%;
+                    width: 50%;
+                }
+                #dr-container {
+                    height: 70%;
+                    width: 100%;
+                }
+            }
+
+
+
+</style>
+
+<p id="welcome">예약할 세탁기 혹은 건조기를 선택해주세요</p>
+
+
+<div id="wm-container">
+    <div id="wm-header">
+    <h1>308관 남자 세탁기</h1>
+    </div>
+        <div id="wm-content">
+        <table>
+            <tr>
+                <td class="wm">1</td>
+                <td class="wm">2</td>
+                <td class="wm">3</td>
+                <td class="wm">4</td>
+                <td class="wm">5</td>
+                <td class="wm">6</td>
+            </tr>
+            <tr>
+                <td class="wm">7</td>
+                <td colspan="4"></td>
+                <td class="wm">9</td>
+            </tr>
+            <tr>
+                <td class="wm">8</td>
+                <td colspan="4"></td>
+                <td class="wm">10</td>
+            </tr>
+        </table>
+        </div>
+    <div id="wm-nav">
+        <table class="info">
+            <tr>
+                <th width="20%">세탁기 번호</th>
+                <th width="40%">종료<br>예정시간</th>
+                <th width="30%">사용중/<br>사용가능</th>
+                <th width="10%"></th>
+            </tr>
+            {% for WM,WM_Time in WM_Info %}
+            <tr>
+                <td>{{WM}}</td>
+                <td>{{WM_Time}}</td>
+                <td></td>
+                <td><a href="{% url 'machine:reserve' user.id WM.id %}">예약</a></td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+</div>
+
+
+
+<br><br>
+        
+<div id="dr-container">
+    <div id="dr-header">
+    <h1>308관 남자 건조기</h1>
+    </div>
+        <div id="dr-content">
+        <table>
+            <tr>
+                <td class="wm">1</td>
+                <td class="wm">2</td>
+                <td class="wm">3</td>
+                <td class="wm">4</td>
+                <td class="wm">5</td>
+                <td class="wm">6</td>
+            </tr>
+        </table>
+        </div>
+<div id="dr-nav">
+<table class="info">
+    <tr>
+        <th width="20%">건조기 번호</th>
+        <th width="40%">종료<br>예정시간</th>
+        <th width="30%">사용중/<br>사용가능</th>
+        <th width="10%"></th>
+    </tr>
+    {% for WM,WM_Time in WM_Info %}
+    <tr>
+        <td>{{WM}}</td>
+        <td>{{WM_Time}}</td>
+        <td></td>
+        <td><a href="{% url 'machine:reserve' user.id WM.id %}">예약</a></td>
+    </tr>
+    {% endfor %}
+</table>
+</div>   
+</div>   
+
+{% endblock %}

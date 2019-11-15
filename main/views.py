@@ -23,4 +23,7 @@ def logout(request):
 def home(request):
     return render(request,'main/home.html')
 
+def male_308(request):
+    return render(request,'main/male_308.html')
+
 

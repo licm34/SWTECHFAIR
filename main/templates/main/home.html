@@ -1,22 +1,60 @@
-<!DOCTYPE html>
-<html lang="ko">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>기빨려 예약시스템 welcome</title>
-</head>
+{% extends 'base.html' %}
 
-<body>
-    <link href="https://fonts.googleapis.com/css?family=Do+Hyeon&display=swap&subset=korean" rel="stylesheet">
+{% block title %}reserve{% endblock %}
 
-    <p id="welcome">{{user.UserName}}님 환영합니다! 생활관 세탁기 예약 시스템입니다. &nbsp;&nbsp;&nbsp; 
-    <a id="bar" href="{% url 'account:myinfo' %}">내 정보</a> &nbsp;&nbsp;&nbsp;
-    <a id="bar" href="{% url 'main:logout' %}">로그아웃</a> <br><br>
+{% block content %}
 
-    <a href="">308관 남자</a> <br>
-    <a href="">308관 여자</a> <br>
-    <a href="">309관 남자</a> <br>
-    <a href="">309관 여자</a> <br>
-</body>
-</html>
+<style>
+    body {
+        background: #014167;
+    }
+    .bubble {
+        padding-left: 20%;
+        padding-right: 20%;
+
+    }
+    .wrap {
+        margin-top: 30px;
+        width: 300px;
+        position: relative;
+        float: left;
+	}
+    bubble {
+        width: 100%;
+        vertical-align: middle;
+        display: inline-block;
+    }
+    #word {
+        font-size: 48px;
+        text-shadow: 4px 4px 4px #aaa;
+        text-align: center;
+        color: #014167;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate( -50%, -50% );
+    }
+</style>
+{% load staticfiles %}
+<p id="welcome">생활관 세탁기 예약 시스템입니다.</p>
+
+    <div class="bubble">
+        <div class="wrap">
+            <bubble><img src="{% static 'bubble.jpg' %}" width="300px"></bubble>
+                <a href="{% url 'main:male_308' %}" id="word">308관 남자</a>
+        </div>
+        <div class="wrap">
+            <bubble><img src="{% static 'bubble.jpg' %}" width="300px"></bubble>
+            <a href="" id="word">308관 여자</a>
+        </div>
+        <div class="wrap">
+            <bubble><img src="{% static 'bubble.jpg' %}" width="300px"></bubble>
+            <a href="" id="word">309관 남자</a>
+        </div>
+        <div class="wrap">
+            <bubble><img src="{% static 'bubble.jpg' %}" width="300px"></bubble>
+            <a href="" id="word">309관 여자</a>
+        </div>
+    </div>
+
+{% endblock %}

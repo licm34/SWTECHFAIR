@@ -57,7 +57,7 @@ ROOT_URLCONF = 'BlueMir_WD.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': ['BlueMir_WD/templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
