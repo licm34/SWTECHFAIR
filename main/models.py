@@ -7,7 +7,6 @@ class Washer(models.Model):
         ('3','308관 여자'),
         ('4','309관 여자'),
     )
-
     Place = models.CharField(max_length=10,choices=PLACE_CHOICES) 
     Number = models.IntegerField(default=1)
 

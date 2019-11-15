@@ -12,7 +12,7 @@
         color: #aaa;
         font-family: 'Do Hyeon', sans-serif;
         }
-    }
+
     div {
         font-family: 'Do Hyeon', sans-serif;
         }
@@ -135,12 +135,12 @@
                 <th width="30%">사용중/<br>사용가능</th>
                 <th width="10%"></th>
             </tr>
-            {% for WM,WM_Time in WM_Info %}
+            {% for Washer_,W_State,W_Times in W_Info %}
             <tr>
-                <td>{{WM}}</td>
-                <td>{{WM_Time}}</td>
-                <td></td>
-                <td><a href="{% url 'machine:reserve' user.id WM.id %}">예약</a></td>
+                <td>{{Washer_}}</td>
+                <td>{{W_State}}</td>
+                <td>{{W_Times}}</td>
+                <td><a href="{% url 'reserve:W_reserve' Washer_.id %}">예약</a></td>
             </tr>
             {% endfor %}
         </table>
@@ -175,12 +175,12 @@
         <th width="30%">사용중/<br>사용가능</th>
         <th width="10%"></th>
     </tr>
-    {% for WM,WM_Time in WM_Info %}
+    {% for Dryer_,D_State,D_Times in D_Info %}
     <tr>
-        <td>{{WM}}</td>
-        <td>{{WM_Time}}</td>
-        <td></td>
-        <td><a href="{% url 'machine:reserve' user.id WM.id %}">예약</a></td>
+        <td>{{Dryer_}}</td>
+        <td>{{D_State}}</td>
+        <td>{{D_Times}}</td>
+        <td><a href="{% url 'reserve:D_reserve' Dryer_.id %}">예약</a></td>
     </tr>
     {% endfor %}
 </table>

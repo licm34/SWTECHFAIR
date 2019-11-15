@@ -1,0 +1,16 @@
+<form action="" method="POST">
+    {% csrf_token %}
+    <table>
+        <tr><td>사용자 번호</td> 
+            <td>{{user.pk}}</td></tr>
+        <tr><td>사용자</td> 
+            <td>{{user.UserName}}</td></tr>
+        <tr><td>사용자 카드번호</td> 
+            <td>{{user.CardId}}</td></tr>
+        <tr><td>예약유효시간</td> 
+            <td></td></tr>
+    </table>
+    <br>
+    <strong># 유효시간 내 이용하지 않을 시, 예약이 취소되며 페널티가 주어집니다.</strong>
+    <input type="submit" value="예약"></input>
+</form>
