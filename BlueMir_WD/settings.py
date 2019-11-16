@@ -122,4 +122,11 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
+STATICFILES_DIR = [
+    os.path.join(BASE_DIR, 'BlueMir_WD', 'static')
+]
+
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+
+
 AUTH_USER_MODEL = 'account.User'
