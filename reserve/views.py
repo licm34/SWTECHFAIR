@@ -29,7 +29,7 @@ def W_reserve(request,id):
                 W_book.save()
                 return redirect('/male_308') # 고치기
             
-            else: # 앞선 사람의 예약 무효
+            else:
                 case = 1
                 error = False
                 time1 = timezone.now() 

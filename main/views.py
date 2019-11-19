@@ -40,7 +40,7 @@ def male_308(request):
         # Washer[i] > i=0 일때는 1번 세탁기...  / 1번 세탁기 관련 예약을 예약 id 순 내림차순(최근 예약부터)
 
         if recent_W.EndTime is None: #EndTime 없음.
-            if recent2_W.EndTime <= timezone.now():
+            if recent2_W.EndTime is None or recent2_W.EndTime <= timezone.now():
                 W_State.append('사용가능')
                 W_Times.append(None)
             else:
