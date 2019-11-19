@@ -7,6 +7,7 @@ from django.utils import timezone
 
 def W_reserve(request,id):
     User = get_user_model()
+    User_ = request.user
     Washer_ = get_object_or_404(Washer,pk=id)
 
     # 모델에 기본 데이터 넣어줘야
@@ -16,17 +17,17 @@ def W_reserve(request,id):
     if recent_W.EndTime is None:
         if recent_W.ValidTime <= timezone.now():
             if request.method == 'POST':
-                user_p = get_object_or_404(User,pk=recent_W.UserId)
+                user_p = get_object_or_404(User,UserName=recent_W.UserId)
                 user_p.Penalty = user_p.Penalty + 1
                 user_p.save()
 
                 # 예약 생성
                 W_book = W_Book()
                 W_book.MachineId = Washer_.Number
-                W_book.UserId = User.UserName
+                W_book.UserId = User_.UserName
                 W_book.ValidTime = timezone.now() + timedelta(minutes=10)
                 W_book.save()
-                return redirect('/') # 고치기
+                return redirect('/male_308') # 고치기
             
             else: # 앞선 사람의 예약 무효
                 case = 1
@@ -53,10 +54,10 @@ def W_reserve(request,id):
             if request.method == 'POST':
                 W_book = W_Book()
                 W_book.MachineId = Washer_.Number
-                W_book.UserId = User.UserName
+                W_book.UserId = User_.UserName
                 W_book.ValidTime = timezone.now() + timedelta(minutes=10)
                 W_book.save()
-                return redirect('/') # 고치기
+                return redirect('/male_308')
             
             else:
                 case = 3
@@ -74,10 +75,10 @@ def W_reserve(request,id):
             if request.method == 'POST':
                 W_book = W_Book()
                 W_book.MachineId = Washer_.Number
-                W_book.UserId = User.UserName
+                W_book.UserId = User_.UserName
                 W_book.ValidTime = recent_W.EndTime + timedelta(minutes=10)
                 W_book.save()
-                return redirect('/') # 고치기
+                return redirect('/male_308')
 
             else:
                 case = 4

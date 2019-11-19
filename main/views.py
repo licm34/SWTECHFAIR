@@ -36,12 +36,16 @@ def male_308(request):
     for i in range(0,len(Washer_)):
     
         recent_W = W_Book.objects.filter(MachineId=Washer_[i].id).order_by('-id')[0]
+        recent2_W = W_Book.objects.filter(MachineId=Washer_[i].id).order_by('-id')[1]
         # Washer[i] > i=0 일때는 1번 세탁기...  / 1번 세탁기 관련 예약을 예약 id 순 내림차순(최근 예약부터)
 
         if recent_W.EndTime is None: #EndTime 없음.
+            if recent2_W.EndTime <= timezone.now():
                 W_State.append('사용가능')
                 W_Times.append(None)
-        
+            else:
+                W_State.append('사용중')
+                W_Times.append(recent2_W.EndTime)
         else: #EndTime 채워져있음
             if recent_W.EndTime <= timezone.now():
                 W_State.append('사용가능')
