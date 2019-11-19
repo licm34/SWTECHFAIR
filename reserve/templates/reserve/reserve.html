@@ -1,4 +1,4 @@
-<form action="" method="POST">
+<form action="{% url 'reserve:W_reserve' Washer.id %}" method="POST">
     {% csrf_token %}
     <table>
         <tr><td>사용자 번호</td> 
@@ -8,9 +8,16 @@
         <tr><td>사용자 카드번호</td> 
             <td>{{user.CardId}}</td></tr>
         <tr><td>예약유효시간</td> 
+        {% if error == True %} 
+            <td> 예약이 불가합니다.</td>
+        {% else %}
             <td>{{time1}}~{{time2}}</td></tr>
+        {% endif %}
     </table>
     <br>
     <strong># 유효시간 내 이용하지 않을 시, 예약이 취소되며 페널티가 주어집니다.</strong>
+
+    {% if error == False %} 
     <input type="submit" value="예약"></input>
+    {% endif %}
 </form>
