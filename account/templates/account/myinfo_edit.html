@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>기빨려 예약시스템 info_edit</title>
+</head>
+<body>
+    <link href="https://fonts.googleapis.com/css?family=Do+Hyeon&display=swap&subset=korean" rel="stylesheet">
+
+    <p id="welcome">중앙대학교 블루미르홀 세탁실 예약시스템</p>
+
+
+    {% if fail %}
+    <strong>수정에 실패하였습니다.</strong>
+    {% endif%}
+    
+<form action="{% url 'account:myinfo_edit' %}" method="POST">
+    {% csrf_token %}
+    <input type="text" class="form-control" name="UserName" placeholder="학번" value="{{user.UserName}}" readonly> <br>
+    <input type="password" class="form-control" name="PassWord" placeholder="비밀번호"> <br>
+    <input type="password" class="form-control" name="Confirm" placeholder="비밀번호 확인"> <br>
+    <input type="text" class="form-control" name="CardId" placeholder="카드번호" value="{{user.CardId}}"> <br>
+    <input type="submit" class="form-control btn btn-secondary" value="수정">
+</form>
+</body>
+</html>

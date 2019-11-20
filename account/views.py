@@ -18,3 +18,19 @@ def signup(request):
 
 def myinfo(request):
     return render(request,'account/myinfo.html')
+
+def myinfo_edit(request):
+    User = get_user_model()
+    if request.method == 'POST':
+        user = get_object_or_404(User,UserName=request.user.UserName)
+        if request.POST['PassWord'] == request.POST['Confirm']:
+            PassWord = request.POST['PassWord']
+            user.set_password(PassWord)
+            user.CardId = request.POST['CardId']
+            user.save()
+            auth.login(request,user)
+            return redirect('/account/myinfo')  # 성공 > myinfo
+        else:
+            return render(request,'account/myinfo_edit.html',{'fail':True}) 
+            # 실패 > 다시 내 정보, 팝업 뜨게. 확인해봐야
+    return render(request,'account/myinfo_edit.html')
