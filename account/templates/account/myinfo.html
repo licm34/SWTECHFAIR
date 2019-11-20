@@ -1,34 +1,60 @@
-{% load staticfiles %}
-<!DOCTYPE html>
-<html lang="ko">
-<head>
+{% extends 'base.html' %}
 
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>기빨려 예약시스템 myinfo</title>
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
-    <script src="//maxcdn.bootstrapcdn.com/bootstrap/latest/js/bootstrap.min.js"></script>
-    <link href="//maxcdn.bootstrapcdn.com/bootstrap/latest/css/bootstrap.min.css" rel="stylesheet">
-<body>
-    <link href="https://fonts.googleapis.com/css?family=Do+Hyeon&display=swap&subset=korean" rel="stylesheet">
+{% block title %}myinfo{% endblock %}
 
+{% block content %}
+<style>
+    table {
+        padding: 1%;
+        width: 100%;
+        font-size: 28px;
+        background: #ccc;
+        border-radius: 20px;
+    }
+    td {
+        padding: 3%;
+    }
+    #entity {
+        background: #ccecff;
+        text-align: center;
+    }
+    #content {
+        background: white;
+        text-align: left;
+        width: 60%;
+    }
+    #wrap {
+        text-align: center;
+        padding-left: 30%;
+        width: 40%;
+    }
+    @media all and (max-width: 1200px){
+            #wrap {
+                width: 60%;
+                padding-left: 20%;
+            }
+        }
+</style>
+
+
+
+
+<p class="title" style="color: #014167">내 정보</p>
+<div style="text-align: center;">
     <div id="wrap">
-        <h1 id="title">내 정보</h1>
         <table>
-                <tr><td>사용자 번호</td> 
-                    <td>{{user.pk}}</td></tr>
-                <tr><td>사용자</td> 
-                    <td>{{user.UserName}}</td></tr>
-                <tr><td>사용자 카드번호</td> 
-                    <td>{{user.CardId}}</td></tr>
-                <tr><td>페널티</td> 
-                    <td>{{user.Penalty}}</td></tr>
+            <tr><td id="entity" style="border-top-left-radius: 20px">사용자 번호</td> 
+                <td id="content" style="border-top-right-radius: 20px">{{user.pk}}</td></tr>
+            <tr><td id="entity">사용자</td> 
+                <td id="content">{{user.UserName}}</td></tr>
+            <tr><td id="entity">사용자 카드번호</td> 
+                <td id="content">{{user.CardId}}</td></tr>
+            <tr><td id="entity" style="border-bottom-left-radius: 20px">페널티</td> 
+                <td id="content" style="border-bottom-right-radius: 20px">{{user.Penalty}}</td></tr>
             </table>
+
+        <br>
+        <input class="button" type="button" onclick="location.href=''" value="수정"></input>
     </div>
-    
-            <input type="button" onclick="location.href='/account/myinfo_edit'" value="수정"></input>
-
-
-</body>
-</html>
+</div>
+{% endblock %}
