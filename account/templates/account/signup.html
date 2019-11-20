@@ -1,26 +1,40 @@
-<!DOCTYPE html>
-<html lang="ko">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>기빨려 예약시스템 signup</title>
-</head>
-<body>
-    <link href="https://fonts.googleapis.com/css?family=Do+Hyeon&display=swap&subset=korean" rel="stylesheet">
+{% extends 'base.html' %}
 
-    <p id="welcome">중앙대학교 블루미르홀 세탁실 예약시스템</p>
-    
+{% block title %}signup{% endblock %}
+
+{% block content %}
+<style>
+        #entity {
+            font-family: 'Do Hyeon', sans-serif;
+            background: #ccecff;
+            text-align: left;
+            width: 60%;
+            padding: 3%;
+            font-size: 28px;
+            border: 2px solid white;
+        }
+        #wrap {
+            text-align: center;
+            width: 50%;
+            padding-left: 25%;
+        }
+        @media all and (max-width: 1200px){
+            #wrap {
+                width: 60%;
+                padding-left: 20%;
+            }
+        }
+</style>
+
+<p class="title" style="color: #014167">중앙대학교 블루미르홀 세탁실 예약시스템</p>
+<div id="wrap">
 <form action="{% url 'account:signup' %}" method="POST">
     {% csrf_token %}
-    <input type="text" class="form-control" name="UserName" placeholder="학번"> <br>
-    <input type="password" class="form-control" name="PassWord" placeholder="비밀번호"> <br>
-    <input type="password" class="form-control" name="Confirm" placeholder="비밀번호 확인"> <br>
-    <input type="text" class="form-control" name="CardId" placeholder="카드번호"> <br>
-    <input type="submit" class="form-control btn btn-secondary" value="회원가입">
+    <input id="entity" style="border-top-left-radius: 20px; border-top-right-radius: 20px" type="text" class="form-control" name="UserName" placeholder="학번"> <br>
+    <input id="entity" type="password" class="form-control" name="PassWord" placeholder="비밀번호"> <br>
+    <input id="entity" type="password" class="form-control" name="Confirm" placeholder="비밀번호 확인"> <br>
+    <input id="entity" style="border-bottom-left-radius: 20px; border-bottom-right-radius: 20px" type="text" class="form-control" name="CardId" placeholder="카드번호"> <br><br>
+    <input class="button" type="submit" class="form-control btn btn-secondary" value="회원가입">
 </form>
-</body>
-</html>
-
-
-
+</div>
+{% endblock %}
