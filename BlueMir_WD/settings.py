@@ -122,8 +122,8 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-STATICFILES_DIR = [
-    os.path.join(BASE_DIR, 'BlueMir_WD', 'static')
+STATICFILES_DIRs = [
+    os.path.join(BASE_DIR, 'BlueMir_WD', 'static'),
 ]
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
