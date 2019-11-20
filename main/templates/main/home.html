@@ -35,9 +35,8 @@
     }
 </style>
 {% load staticfiles %}
+<div class="bubble">
 <p class="title" style="color: #ccecff">생활관 세탁기 예약 시스템입니다.</p>
-
-    <div class="bubble">
         <div id="wrap">
             <img src="{% static 'BUBBLE.jpg' %}" width="300px">
                 <a href="{% url 'main:male_308' %}" id="word">308관 남자</a>
@@ -54,6 +53,6 @@
             <img src="{% static 'BUBBLE.jpg' %}" width="300px">
             <a href="" id="word">309관 여자</a>
         </div>
-    </div>
+</div>
 
 {% endblock %}
