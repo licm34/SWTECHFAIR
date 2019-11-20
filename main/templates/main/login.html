@@ -69,11 +69,13 @@
 <div id="wrap">
 <form action="{% url 'main:login' %}" method="POST">
     {% csrf_token %}
-    <input id="entity" style="border-top-left-radius: 20px; border-top-right-radius: 20px" type="text" class="form-control" name="UserName" placeholder="학번"> <br>
-    <input id="entity" style="border-bottom-left-radius: 20px; border-bottom-right-radius: 20px" type="password" class="form-control" name="PassWord" placeholder="비밀번호"> <br>
-    <strong style="text-align: center; color: white; font-size: 24px"># 계정이 없다면 회원가입을 해주세요.</strong>
-    <a style="color: #b52400; background-color: #ffe2db; font-size: 24px" href="{% url 'account:signup' %}">회원가입</a><br><br>
-    <input class="button" type="submit" class="form-control btn btn-secondary" value="로그인"> <br>
+        <input id="entity" style="border-top-left-radius: 20px; border-top-right-radius: 20px" type="text" class="form-control" name="UserName" placeholder="학번"> <br>
+        <input id="entity" style="border-bottom-left-radius: 20px; border-bottom-right-radius: 20px" type="password" class="form-control" name="PassWord" placeholder="비밀번호">
+        <p style="text-align: center; color: white; font-size: 24px"># 계정이 없다면 회원가입을 해주세요.</p>
+        <input class="button" type="submit" class="form-control btn btn-secondary" value="로그인">
+    <a href="{% url 'account:signup' %}">
+        <input class="button" type="button" style="color: white" onclick="location.href="{% url 'account:signup' %}"" value="회원가입">
+    </a>
 </form> 
 </div>        
 
