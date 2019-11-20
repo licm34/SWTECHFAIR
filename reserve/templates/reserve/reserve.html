@@ -1,23 +1,67 @@
-<form action="{% url 'reserve:W_reserve' Washer.id %}" method="POST">
-    {% csrf_token %}
-    <table>
-        <tr><td>사용자 번호</td> 
-            <td>{{user.pk}}</td></tr>
-        <tr><td>사용자</td> 
-            <td>{{user.UserName}}</td></tr>
-        <tr><td>사용자 카드번호</td> 
-            <td>{{user.CardId}}</td></tr>
-        <tr><td>예약유효시간</td> 
-        {% if error == True %} 
-            <td> 예약이 불가합니다.</td>
-        {% else %}
-            <td>{{time1}}~{{time2}}</td></tr>
-        {% endif %}
-    </table>
-    <br>
-    <strong># 유효시간 내 이용하지 않을 시, 예약이 취소되며 페널티가 주어집니다.</strong>
+{% extends 'base.html' %}
 
+{% block title %}reserve{% endblock %}
+
+{% block content %}
+<style>
+        table {
+            padding: 1%;
+            width: 100%;
+            font-size: 28px;
+            background: #ccc;
+            border-radius: 20px;
+        }
+        td {
+            padding: 3%;
+        }
+        #entity {
+            background: #ccecff;
+            text-align: center;
+        }
+        #content {
+            background: white;
+            text-align: left;
+            width: 60%;
+        }
+        #wrap {
+            text-align: center;
+            padding-left: 30%;
+            width: 40%;
+        }
+        @media all and (max-width: 1200px){
+            #wrap {
+                width: 60%;
+                padding-left: 20%;
+            }
+        }
+</style>
+
+
+
+
+<p class="title" style="color: #014167">다음과 같이 예약됩니다.</p>
+<div id="wrap">
+    <form action="{% url 'reserve:W_reserve' Washer.id %}" method="POST">
+    {% csrf_token %}
+        <table>
+            <tr><td id="entity" style="border-top-left-radius: 20px">사용자 번호</td> 
+                <td id="content" style="border-top-right-radius: 20px">{{user.pk}}</td></tr>
+            <tr><td id="entity">사용자</td> 
+                <td id="content">{{user.UserName}}</td></tr>
+            <tr><td id="entity">사용자 카드번호</td> 
+                <td id="content"{{user.CardId}}</td></tr>
+            <tr><td id="entity" style="border-bottom-left-radius: 20px">예약유효시간</td> 
+            {% if error == True %} 
+                <td  id="content" style="border-bottom-right-radius: 20px"> 예약이 불가합니다.</td>
+            {% else %}
+                <td  id="content" style="border-bottom-right-radius: 20px">{{time1}}<br>~{{time2}}</td></tr>
+            {% endif %}
+        </table>
+    <strong style="text-align: center; color: #b52400; font-size: 24px"># 유효시간 내 이용하지 않을 시, 예약이 취소되며 페널티가 주어집니다.</strong><br><br>
     {% if error == False %} 
-    <input type="submit" value="예약"></input>
+    <input class="button" type="submit" value="예약"></input>
     {% endif %}
 </form>
+</div>
+
+{% endblock %}

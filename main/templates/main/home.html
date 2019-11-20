@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 
-{% block title %}reserve{% endblock %}
+{% block title %}home{% endblock %}
 
 {% block content %}
 
@@ -11,15 +11,14 @@
     .bubble {
         padding-left: 20%;
         padding-right: 20%;
-
     }
-    .wrap {
+    #wrap {
         margin-top: 30px;
         width: 300px;
         position: relative;
         float: left;
 	}
-    bubble {
+    .bubble img {
         width: 100%;
         vertical-align: middle;
         display: inline-block;
@@ -36,23 +35,23 @@
     }
 </style>
 {% load staticfiles %}
-<p id="welcome">생활관 세탁기 예약 시스템입니다.</p>
+<p class="title" style="color: #ccecff">생활관 세탁기 예약 시스템입니다.</p>
 
     <div class="bubble">
-        <div class="wrap">
-            <bubble><img src="{% static 'bubble.jpg' %}" width="300px"></bubble>
+        <div id="wrap">
+            <img src="{% static 'BUBBLE.jpg' %}" width="300px">
                 <a href="{% url 'main:male_308' %}" id="word">308관 남자</a>
         </div>
-        <div class="wrap">
-            <bubble><img src="{% static 'bubble.jpg' %}" width="300px"></bubble>
+        <div id="wrap">
+            <img src="{% static 'BUBBLE.jpg' %}" width="300px">
             <a href="" id="word">308관 여자</a>
         </div>
-        <div class="wrap">
-            <bubble><img src="{% static 'bubble.jpg' %}" width="300px"></bubble>
+        <div id="wrap">
+            <img src="{% static 'BUBBLE.jpg' %}" width="300px">
             <a href="" id="word">309관 남자</a>
         </div>
-        <div class="wrap">
-            <bubble><img src="{% static 'bubble.jpg' %}" width="300px"></bubble>
+        <div id="wrap">
+            <img src="{% static 'BUBBLE.jpg' %}" width="300px">
             <a href="" id="word">309관 여자</a>
         </div>
     </div>

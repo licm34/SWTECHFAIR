@@ -5,51 +5,41 @@
 {% block content %}
 
 <style>
-    #welcome {
-        margin-top: 5%;
-        font-size: 48px;
-        text-align: center;
-        color: #aaa;
-        font-family: 'Do Hyeon', sans-serif;
-        }
-
-    div {
-        font-family: 'Do Hyeon', sans-serif;
-        }
-
-    .wm {
-        background: lightgray;
+    #wm {
+        background: #ccc;
         border: 6px solid white;
         text-align: center;
         font-size: 60px;
         width: 80px;
     }
-
-
-    #wm-container, #dr-container {
-        width: 100%;
-        height: 500px;
-      }
-    #wm-header, #dr-header {
-        font-size: 24px;
-        height: 70px;
-        padding-left: 9%;
-      }
-    #wm-content, #dr-content {
-        width: 50%;
+    #content {
+        width: 45%;
+        padding-right: 5%;
         height: 30%;
         margin-bottom: 20px;
         float: left;
         height: 450px;
-      }
-    #wm-nav, #dr-nav {
+        color: #333;
+    }
+    #header {
+        font-size: 24px;
+        height: 70px;
+        text-align: center;
+        padding-bottom: 20px;
+    }
+    #container {
+        width: 100%;
+        height: 500px;
+        background: #eee;
+    }
+    #nav {
         width: 50%;
         margin-bottom: 24px;
-        float: left;
-        font-size: 30px;
+        float: right;
+        font-size: 28px;
+        text-align: center;
         height: 450px;
       }
-
     .info th {
           padding-left: 10px;
           padding-right: 10px;
@@ -64,75 +54,57 @@
     th {
         padding-bottom: 20px;
     }
-
-@media screen and (max-width:800px){
-                #wm-content {
-                    height: 90%;
-                    width: 50%;
-                }
-                #wm-nav {
-                    height: 90%;
-                    width: 50%;
-                }
-                #wm-container {
-                    height: 70%;
-                    width: 100%;
-                }
-            }
-@media screen and (max-width:800px){
-                #dr-content {
-                    height: 90%;
-                    width: 50%;
-                }
-                #dr-nav {
-                    height: 90%;
-                    width: 50%;
-                }
-                #dr-container {
-                    height: 70%;
-                    width: 100%;
-                }
-            }
-
-
-
+    @media all and (min-width: 1800px){
+        #container {
+            width: 60%;
+            padding-left: 20%;
+            padding-right: 20%;
+        }
+    }
+    @media all and (min-width: 1400px) and (max-width: 1800px){
+        #container {
+            width: 80%;
+            padding-left: 10%;
+            padding-right: 20%;
+        }
+    }  
+      
 </style>
 
-<p id="welcome">예약할 세탁기 혹은 건조기를 선택해주세요</p>
+<p class="title" style="color: #555">예약할 세탁기 혹은 건조기를 선택해주세요</p>
 
-
-<div id="wm-container">
-    <div id="wm-header">
-    <h1>308관 남자 세탁기</h1>
+<div id="container">
+    <div id="header">
+    <h1 style="color: #999">308관 남자 세탁기</h1>
     </div>
-        <div id="wm-content">
+        <div id="content">
         <table>
             <tr>
-                <td class="wm">1</td>
-                <td class="wm">2</td>
-                <td class="wm">3</td>
-                <td class="wm">4</td>
-                <td class="wm">5</td>
-                <td class="wm">6</td>
+                <td id="wm">3</td>
+                <td id="wm">4</td>
+                <td id="wm">5</td>
+                <td id="wm">6</td>
+                <td id="wm">7</td>
+                <td id="wm">8</td>
             </tr>
             <tr>
-                <td class="wm">7</td>
+                <td id="wm">2</td>
                 <td colspan="4"></td>
-                <td class="wm">9</td>
+                <td id="wm">9</td>
             </tr>
             <tr>
-                <td class="wm">8</td>
+                <td id="wm">1</td>
                 <td colspan="4"></td>
-                <td class="wm">10</td>
+                <td id="wm">10</td>
             </tr>
         </table>
-        </div>
-    <div id="wm-nav">
-        <table class="info">
+    </div>
+    <div id="nav">
+        <table id="info">
             <tr>
-                <th width="20%">세탁기 번호</th>
-                <th width="40%">사용중/<br>사용가능</th>
-                <th width="30%">종료<br>예정시간</th>
+                <th width="25%">세탁기 번호</th>
+                <th width="25%">사용현황</th>
+                <th width="40%">종료예정시간</th>
                 <th width="10%"></th>
             </tr>
             {% for Washer_,W_State,W_Times in W_Info %}
@@ -151,28 +123,28 @@
 
 <br><br>
         
-<div id="dr-container">
-    <div id="dr-header">
-    <h1>308관 남자 건조기</h1>
+<div id="container">
+    <div id="header">
+    <h1 style="color: #999">308관 남자 건조기</h1>
     </div>
-        <div id="dr-content">
+        <div id="content">
         <table>
             <tr>
-                <td class="wm">1</td>
-                <td class="wm">2</td>
-                <td class="wm">3</td>
-                <td class="wm">4</td>
-                <td class="wm">5</td>
-                <td class="wm">6</td>
+                <td id="wm">1</td>
+                <td id="wm">2</td>
+                <td id="wm">3</td>
+                <td id="wm">4</td>
+                <td id="wm">5</td>
+                <td id="wm">6</td>
             </tr>
         </table>
         </div>
-<div id="dr-nav">
-<table class="info">
+<div id="nav">
+<table id="info">
     <tr>
-        <th width="20%">건조기 번호</th>
-        <th width="40%">사용중/<br>사용가능</th>
-        <th width="30%">종료<br>예정시간</th>
+        <th width="25%">건조기 번호</th>
+        <th width="25%">사용현황</th>
+        <th width="40%">종료예정시간</th>
         <th width="10%"></th>
     </tr>
     {% for Dryer_,D_State,D_Times in D_Info %}
